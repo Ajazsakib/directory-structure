@@ -1,23 +1,58 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Folder from './Folder';
+let arr = {
+  name: 'root',
+  isFolder: true,
+  items: [
+    {
+      name: 'Public',
+      isFolder: true,
+      items: [
+        {
+          name: 'Public Nested 1',
+          isFolder: true,
+          items: [
+            {
+              name: 'index.html',
+              isFolder: false,
+            },
+            {
+              name: 'hello.html',
+              isFolder: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'SRC',
+      isFolder: true,
+      items: [
+        {
+          name: 'SRC Nested 1',
+          isFolder: true,
+          items: [
+            {
+              name: 'index.html',
+              isFolder: false,
+            },
+            {
+              name: 'hello.html',
+              isFolder: false,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Learn Pagination</h1>
+      <Folder explorer={arr} />
     </div>
   );
 }
